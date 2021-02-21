@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:13:10 by yejeong           #+#    #+#             */
-/*   Updated: 2021/02/21 16:26:02 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/02/21 18:06:49 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_alphabet(void)
 	char a;
 
 	a = 'a';
-	while(a <= 'z')
+	while (a <= 'z')
 	{
 		write(1, &a, 1);
 		a++;

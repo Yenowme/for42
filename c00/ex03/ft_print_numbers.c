@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:13:10 by yejeong           #+#    #+#             */
-/*   Updated: 2021/02/21 18:07:09 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/02/21 17:25:48 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_print_numbers(void)
 {
 	char a;
 
-	a = 'z';
-	while (a >= 'a')
+	a = '0';
+	while (a <= '9')
 	{
 		write(1, &a, 1);
-		a--;
+		a++;
 	}
 }
