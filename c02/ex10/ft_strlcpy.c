@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/24 20:19:12 by yejeong           #+#    #+#             */
-/*   Updated: 2021/02/27 13:18:25 by yejeong          ###   ########.fr       */
+/*   Created: 2021/02/27 12:14:18 by yejeong           #+#    #+#             */
+/*   Updated: 2021/02/27 13:14:42 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_str_is_printable(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int i;
+	unsigned int i;
+	unsigned int j;
 
+	j = 0;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < size - 1)
 	{
-		if (str[i] < 0 || str[i] > 127)
-			return (0);
+		dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	while (src[j++])
+		;
+	return (j);
 }
