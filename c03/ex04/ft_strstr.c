@@ -1,34 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 13:20:03 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:00 by yejeong          ###   ########.fr       */
+/*   Created: 2021/03/01 16:01:19 by yejeong           #+#    #+#             */
+/*   Updated: 2021/03/01 17:00:11 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr_non_printable(char *str2)
+int		find_str(char *str, char *to_find)
 {
-	int				i;
-	unsigned char	*str;
+	int i;
+	int sum;
+	int size;
 
-	str = (unsigned char *)str2;
+	i = 0;
+	sum = 0;
+	size = 0;
+	while (to_find[size])
+	{
+		size++;
+	}
+	while (str[i] == to_find[i])
+	{
+		sum++;
+		i++;
+	}
+	if (size == sum)
+		return (1);
+	return (0);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int i;
+
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < 32 || str[i] >= 127)
-		{
-			write(1, "/", 1);
-			write(1, &"0123456789abcdef"[str[i] / 16], 1);
-			write(1, &"0123456789abcdef"[str[i] % 16], 1);
-		}
-		else
-			write(1, &str[i], 1);
+		if (find_str(&str[i], to_find))
+			return (&str[i]);
 		i++;
 	}
+	return (0);
 }

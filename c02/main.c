@@ -59,5 +59,11 @@ int	main(void)
 	printf("\n");
 	ft_putstr_non_printable(stl12);
 	printf("\n=====12=======\n");
+
+
+	void *test_1 = stl11;
+	long int test_2 = (long int)test1;
+	printf("%ld", test_2);
+
 	return 0;
 }

@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 13:20:03 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:00 by yejeong          ###   ########.fr       */
+/*   Created: 2021/03/01 17:40:02 by yejeong           #+#    #+#             */
+/*   Updated: 2021/03/01 18:20:32 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_non_printable(char *str2)
+void	ft_putnbr(int nb)
 {
-	int				i;
-	unsigned char	*str;
+	char a;
 
-	str = (unsigned char *)str2;
-	i = 0;
-	while (str[i])
+	if (nb == -2147483648)
 	{
-		if (str[i] < 32 || str[i] >= 127)
-		{
-			write(1, "/", 1);
-			write(1, &"0123456789abcdef"[str[i] / 16], 1);
-			write(1, &"0123456789abcdef"[str[i] % 16], 1);
-		}
-		else
-			write(1, &str[i], 1);
-		i++;
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+		ft_putnbr(nb);
+	}
+	else if (nb < 10)
+	{
+		a = nb % 10 + '0';
+		write(1, &a, 1);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		a = nb % 10 + '0';
+		write(1, &a, 1);
 	}
 }
