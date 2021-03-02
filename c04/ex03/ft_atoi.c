@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 18:25:38 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/02 10:40:31 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/02 11:54:40 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	print_int(char *str, int *rt)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		*rt += (int)str[i] - '0';
-		*rt *= 10;
+		if (str[i + 1] >= '0' && str[i + 1] <= '9')
+			*rt *= 10;
 		i++;
 	}
-	*rt /= 10;
 }
 
 int		ft_atoi(char *str)
