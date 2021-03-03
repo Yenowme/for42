@@ -35,9 +35,21 @@ int	main(void)
 	printf("atoi = %d",ft_atoi(" ++--+0--	"));
 	printf("\n=====4=======\n");
 	ft_putnbr_base(-6435,"-123");
+	printf("\n");
 	ft_putnbr_base(-6435,"0123");
+	printf("\n");
 	ft_putnbr_base(236435,"abdbfi2s");
+	printf("\n");
 	ft_putnbr_base(6435,"0123456789");
+	printf("\n");
+	ft_putnbr_base(-2147483648,"0123456789");
+	printf("\n");
+	ft_putnbr_base(-2147483648,"0123456789abcd");
+	printf("\n");
+	ft_putnbr_base(2147483647,"0123456789");
+	printf("\n");
+	ft_putnbr_base(247,"0123456789abcdef");
+
 	printf("\n=====5=======\n");
 	printf("%d\n", ft_atoi_base("ff", "0123456789abcdef"));
 	printf("%d\n", ft_atoi_base("a0a", "0a"));

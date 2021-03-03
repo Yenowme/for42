@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 10:45:39 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/02 11:43:43 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/03 17:45:46 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int		check_base(char *base)
 
 void	print_base(int nbr, char *base, int size)
 {
+	if (nbr < 0)
+	{
+		write(1, "-", 1);
+		nbr *= -1;
+	}
 	if (nbr < size)
 	{
 		write(1, &base[nbr], 1);
@@ -60,10 +65,11 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	if (size <= 1)
 		return ;
-	if (nbr < 0)
+	if (nbr == -2147483648)
 	{
-		write(1, "-", 1);
-		nbr *= -1;
+		print_base(nbr / size, base, size);
+		print_base((nbr % size) * -1 , base, size);
+		return ;
 	}
 	print_base(nbr, base, size);
 }
