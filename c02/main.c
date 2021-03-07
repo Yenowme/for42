@@ -8,9 +8,12 @@ int ft_str_is_numeric(char *str);
 int ft_str_is_lowercase(char *str);
 int ft_str_is_uppercase(char *str);
 int ft_str_is_printable(char *str);
-// 8,9 풀었음
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size); //10
+char *ft_strupcase(char *str);
+char *ft_strlowcase(char *str);
+char *ft_strcapitalize(char *str);
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);
 void ft_putstr_non_printable(char *str);
+void *ft_print_memory(void *addr, unsigned int size);
 
 int	main(void)
 {
@@ -19,11 +22,13 @@ int	main(void)
 	printf("%s\n",ft_strcpy(des,"hello"));
 	printf("%s\n",ft_strcpy(des,"~"));
 	printf("\n=====1=======\n");
-	printf("%s\n",ft_strncpy(des,"hello",3));
-	printf("%s\n",ft_strncpy(des,"~",1));
-	printf("%s\n",ft_strncpy(des,"~",5));
+	char dest[330] = "hellloooo";
+	printf("%s\n",ft_strncpy(dest,"abc",2));
+	printf("%s\n",ft_strncpy(dest,"abc",5));
+	printf("%s\n",ft_strncpy(dest,"~",1));
 	printf("\n=====2=======\n");
 	printf("%d\n", ft_str_is_alpha("abZ"));
+	printf("%d\n", ft_str_is_alpha(""));
 	printf("%d\n", ft_str_is_alpha("ad#"));
 	printf("\n=====3=======\n");
 	printf("%d\n", ft_str_is_numeric("0234"));
@@ -40,30 +45,40 @@ int	main(void)
 	printf("%d\n",ft_str_is_uppercase(""));
 	printf("\n=====6=======\n");
 
-	char pa[5] = { 10, 65, 65, 74};
-	char pn[5] = { 10, 9, 127 , 0};
+	char pa[5] = { 65, 65, 74, 0};
+	char pn_1[5] = { 10, 127, 0};
+	char pn[5] = { 10, 9, 0};
 	printf("%d\n",ft_str_is_printable(pa));
+	printf("%d\n",ft_str_is_printable(pn_1));
 	printf("%d\n",ft_str_is_printable(pn));
 	printf("\n=====7=======\n");
+	char stup1[] = "abdsafD";
+	char stup2[] = "3ddf.Gda";
+
+	printf("%s\n",ft_strupcase(stup1));
+	printf("%s\n",ft_strupcase(stup2));
+	printf("%s\n",stup2);
 	printf("\n=====8=======\n");
+	printf("%s\n",ft_strlowcase(stup1));
+	printf("%s\n",ft_strlowcase(stup2));
 	printf("\n=====9=======\n");
 	printf("\n=====10=======\n");
-	char srl_dest[9] = {0};
-	printf("%u\n" , ft_strlcpy(srl_dest, "hiro", 3));
-	printf("%s\n" , srl_dest);
-	
+	char ldest[50] = "hello";
+
+	printf("%u" ,ft_strlcpy(ldest, "ydddu", 2));
+	printf("%s", ldest);
+	printf("%u" ,ft_strlcpy(ldest, "ydddu", 9));
+	printf("%s", ldest);
+	printf("%u" ,ft_strlcpy(ldest, "ydddu", 0));
+	printf("%s", ldest);
 	printf("\n=====11=======\n");
-	char stl11[] = { 16, 'b', 'a', 'E', 7, 127, 15, 24, 31, 0};
-	char stl12[] = "Coundsf \ntdsf BDis ?";
-	ft_putstr_non_printable(stl11);
-	printf("\n");
-	ft_putstr_non_printable(stl12);
+	char nstr[14] = { 12, -4, -120, 120, 34, 87, 32, 64, 127, -126, 0};
+	ft_putstr_non_printable(nstr);
 	printf("\n=====12=======\n");
-
-
-	void *test_1 = stl11;
-	long int test_2 = (long int)test1;
-	printf("%ld", test_2);
-
+	char test09[] = "salus't, coM3mEnt tu \vvas ? 42mOts quA3\nanTe-Deux; ciqxu\tantt+un";
+	ft_print_memory(test09, 62);
+	printf("\n");
+	char test08[] = "salus'tiasdfjasd;lfjkaff\n\n\n, coM3mEnt tu \vvas ? 42mOts quA3\nanTe-Deux; ciqxu\tantt+un";
+	ft_print_memory(test08, 88);
 	return 0;
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yejeong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/24 20:19:12 by yejeong           #+#    #+#             */
-/*   Updated: 2021/02/25 12:59:00 by yejeong          ###   ########.fr       */
+/*   Created: 2021/02/25 18:02:53 by yejeong           #+#    #+#             */
+/*   Updated: 2021/02/25 18:07:22 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if (str[i] <= 31 || str[i] >= 127)
-			return (0);
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] += 32;
+		}
 		i++;
 	}
-	return (1);
+	return (str);
 }

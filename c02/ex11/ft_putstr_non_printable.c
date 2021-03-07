@@ -6,29 +6,32 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 13:20:03 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/01 17:52:00 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/07 22:14:29 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_non_printable(char *str2)
+void	print_non_printable(unsigned char str)
 {
-	int				i;
-	unsigned char	*str;
+	if (str < 32 || str >= 127)
+	{
+		write(1, "/", 1);
+		write(1, &"0123456789abcdef"[str / 16], 1);
+		write(1, &"0123456789abcdef"[str % 16], 1);
+	}
+	else
+		write(1, &str, 1);
+}
 
-	str = (unsigned char *)str2;
+void	ft_putstr_non_printable(char *str)
+{
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < 32 || str[i] >= 127)
-		{
-			write(1, "/", 1);
-			write(1, &"0123456789abcdef"[str[i] / 16], 1);
-			write(1, &"0123456789abcdef"[str[i] % 16], 1);
-		}
-		else
-			write(1, &str[i], 1);
+		print_non_printable(str[i]);
 		i++;
 	}
 }
