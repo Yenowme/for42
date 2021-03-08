@@ -33,8 +33,11 @@ int	main(void)
 	printf("%s\n",ft_strstr("hellowo","hellowoo"));
 	printf("%s\n",ft_strstr("hellowo",""));
 	printf("\n=====5=======\n");
-	printf("%u\n",ft_strlcat(catn_dest,"world", 3));
-	printf("%s\n",catn_dest);
+	char ldest[] = "hello";
+	printf("%u\n",ft_strlcat(ldest,"world", 3));
+	printf("%s\n",ldest);
+	printf("%u\n",ft_strlcat(ldest,"world", 7));
+	printf("%s\n",ldest);
 
 	return 0;
 }
