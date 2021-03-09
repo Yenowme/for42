@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 13:20:03 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/07 22:14:29 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/09 22:45:59 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_non_printable(unsigned char str)
 {
 	if (str < 32 || str >= 127)
 	{
-		write(1, "/", 1);
+		write(1, "\\", 1);
 		write(1, &"0123456789abcdef"[str / 16], 1);
 		write(1, &"0123456789abcdef"[str % 16], 1);
 	}

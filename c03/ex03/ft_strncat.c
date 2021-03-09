@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 15:11:13 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 06:04:08 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/09 22:48:25 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		j++;
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }

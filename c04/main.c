@@ -13,7 +13,8 @@ int ft_atoi_base(char *str, char *base);
 int	main(void)
 {
 	printf("\n=====0=======\n");
-	printf("%d", ft_strlen("hello"));
+	printf("%d\n", ft_strlen("hello"));
+	printf("%d\n", ft_strlen(""));
 	printf("\n=====1=======\n");
  	ft_putstr("dsfleasldf dfjsc fif");	
 	printf("\n=====2=======\n");
@@ -29,10 +30,10 @@ int	main(void)
 	printf("\n");
 	ft_putnbr(0);
 	printf("\n=====3=======\n");
-	printf("atoi = %d",ft_atoi("+df d8e3"));
-	printf("atoi = %d",ft_atoi(" -2147483648e3"));
-	printf("atoi = %d",ft_atoi(" +++2147483647--	"));
-	printf("atoi = %d",ft_atoi(" ++--+0--	"));
+	printf("atoi = %d\n",ft_atoi("+df d8e3"));
+	printf("atoi = %d\n",ft_atoi(" -2147483648e3"));
+	printf("atoi = %d\n",ft_atoi(" +++2147483647--	"));
+	printf("atoi = %d\n",ft_atoi(" ++--+0--	"));
 	printf("\n=====4=======\n");
 	ft_putnbr_base(-6435,"-123");
 	printf("\n");

@@ -45,6 +45,10 @@ int	main(void)
 	printf("%s\n",ldest);
 	printf("%u\n",ft_strlcat(ldest,"world", 7));
 	printf("%s\n",ldest);
+	printf("%u\n",ft_strlcat(ldest,"", 0));
+	printf("%s\n",ldest);
+	printf("%u\n",ft_strlcat(ldest,"world", 37));
+	printf("%s\n",ldest);
 
 	return 0;
 }

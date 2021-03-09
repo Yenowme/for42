@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 15:11:13 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/08 12:35:51 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/09 23:30:11 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int nb)
 	src_s = set_size(src);
 	dest_s = set_size(dest);
 	i = 0;
-	if (dest_s > nb)
-		return (src_s + dest_s);
+	if (dest_s >= nb)
+		return (src_s + nb);
 	j = dest_s;
-	while (j < nb - 1)
+	while (j < nb - 1 && src[i])
 	{
 		dest[j] = src[i];
 		j++;

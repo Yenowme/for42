@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 16:01:19 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 07:29:28 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/09 22:56:32 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		find_str(char *str, char *to_find)
 char	*ft_strstr(char *str, char *to_find)
 {
 	int i;
+
 	i = 0;
 	if (to_find == 0)
 		return (to_find);
@@ -45,5 +46,5 @@ char	*ft_strstr(char *str, char *to_find)
 			return (&str[i]);
 		i++;
 	}
-	return ((void *)0);
+	return (0);
 }
