@@ -18,19 +18,26 @@ int	main(void)
 	printf("\n=====1=======\n");
 	printf("%d\n", ft_strncmp("aaisadf", "abvds", 3));
 	printf("%d\n", ft_strncmp("aass", "aass", 2));
+	printf("%d\n", ft_strncmp("aass", "aass", 40));
 	printf("%d\n", ft_strncmp("12fxa", "0ds23ab", 1));
+	printf("%d\n", ft_strncmp("12fxa", "0ds23ab", 20));
+	printf("%d\n", ft_strncmp("12fxa", "0ds23ab", 0));
+	printf("%d\n", ft_strncmp("12fxa", "0ds23ab", 0));
 	printf("\n=====2=======\n");
 	char cat_dest[20] = "Hello";
 
 	printf("%s\n",ft_strcat(cat_dest,"world"));
+	printf("%s\n",ft_strcat(cat_dest,"hid"));
 	printf("\n=====3=======\n");
 	char catn_dest[20] = "hi";
 	printf("%s\n",ft_strncat(catn_dest,"world", 3));
 	printf("\n=====4=======\n");
 	printf("%s\n",ft_strstr("helloworld","wo"));
-	printf("%s\n",ft_strstr("helloworld","wa:orld"));
 	printf("%s\n",ft_strstr("helloworld","ll"));
-	printf("%s\n",ft_strstr("hellowo","hellowoo"));
+	printf("%s\n",ft_strstr("hellowo","b"));
+	printf("%s\n",ft_strstr("abco","abcd"));
+	printf("%s\n",ft_strstr("helloworld","worls"));
+	printf("%s\n",ft_strstr("","wa:orld"));
 	printf("%s\n",ft_strstr("hellowo",""));
 	printf("\n=====5=======\n");
 	char ldest[] = "hello";

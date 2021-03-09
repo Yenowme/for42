@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 14:09:23 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 05:21:13 by yejeong          ###   ########.fr       */
+/*   Created: 2021/03/01 17:35:06 by yejeong           #+#    #+#             */
+/*   Updated: 2021/03/01 17:37:44 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
 	int i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (n > 0)
+	while (str[i])
 	{
-		if (s1[i] > s2[i])
-			return (1);
-		else if (s1[i] < s2[i])
-			return (-1);
-		else if (s1[i] == s2[i] && (n == 0 || (s2[i] && s2[i])))
-			return (0);
-		n--;
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (1);
 }

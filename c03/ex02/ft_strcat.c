@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 15:11:13 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/01 16:00:19 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/09 06:00:04 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ char	*ft_strcat(char *dest, char *src)
 	{
 		i++;
 	}
-	while (src[i])
+	while (src[j])
 	{
 		dest[i] = src[j];
 		j++;
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }

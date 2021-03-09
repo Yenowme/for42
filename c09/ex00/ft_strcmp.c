@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 14:09:23 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 05:21:13 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/01 15:07:38 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int i;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (n > 0)
+	while (1)
 	{
 		if (s1[i] > s2[i])
 			return (1);
 		else if (s1[i] < s2[i])
 			return (-1);
-		else if (s1[i] == s2[i] && (n == 0 || (s2[i] && s2[i])))
+		else if (s1[i] == s2[i] && !s1[i + 1] && !s2[i + 1])
 			return (0);
-		n--;
 		i++;
 	}
-	return (1);
 }
