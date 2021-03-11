@@ -6,18 +6,18 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 12:48:58 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/03 12:56:05 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 15:37:25 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_is_prime(int nb)
 {
-	int i;
+	long long int i;
 
 	i = 2;
 	if (nb < 2)
 		return (0);
-	while (i < nb)
+	while (i * i <= nb)
 	{
 		if (nb % i == 0)
 			return (0);

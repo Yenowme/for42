@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:22:04 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/03 21:13:55 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 20:27:22 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sort(int argc, char **argv)
 	i = 0;
 	while (i < argc - 1)
 	{
-		j = 0;
+		j = 1;
 		while (j < argc - 1 - i)
 		{
 			if (my_strcmp(argv[j], argv[j + 1]) == 1)

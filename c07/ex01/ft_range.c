@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:38:24 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/03 22:25:31 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 20:34:11 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (0);
 	size = max - min;
-	rt = malloc(sizeof(int) * size);
+	if (!(rt = malloc(sizeof(int) * size + 1)))
+		return (0);
 	if (rt == 0)
 		return (0);
 	i = 0;
@@ -29,8 +30,7 @@ int	*ft_range(int min, int max)
 	{
 		rt[i] = min;
 		i++;
-		if (i != size)
-			min++;
+		min++;
 	}
 	return (rt);
 }

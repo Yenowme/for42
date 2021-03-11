@@ -6,23 +6,20 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 23:16:35 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/03 12:37:59 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/12 00:27:53 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int rt;
-	int i;
+	long long int	i;
 
 	i = 1;
-	rt = 0;
 	if (nb < 0)
 		return (0);
-	while (rt < nb)
+	while (i * i <= nb)
 	{
-		rt = i * i;
-		if (rt == nb)
+		if (i * i == nb)
 			return (i);
 		i++;
 	}

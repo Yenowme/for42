@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 22:26:45 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/04 11:02:34 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 20:46:02 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		strs_malloc(int size, char **strs, char *sep, char **rt)
 	while (sep[i])
 		i++;
 	m_size += i * (size - 1);
-	*rt = malloc(sizeof(char) * m_size);
+	*rt = malloc(sizeof(char) * (m_size + 1));
 	if (!*rt)
 		return (0);
 	else

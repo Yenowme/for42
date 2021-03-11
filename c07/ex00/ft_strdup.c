@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:27:40 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/03 21:35:48 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 20:32:28 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	rt = malloc(sizeof(char) * i);
+	if (!(rt = malloc(sizeof(char) * i + 1)))
+			return (0);
 	i = 0;
 	while (src[i])
 	{

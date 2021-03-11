@@ -31,12 +31,15 @@ int	main(void)
 	printf("%d\n", ft_iterative_power(12,4));
 	printf("%d\n", ft_iterative_power(0,0));
 	printf("%d\n", ft_iterative_power(3,0));
+	printf("%d\n", ft_iterative_power(3,-3));
 	printf("\n=====3=======\n");
 	printf("%d\n", ft_recursive_power(2,4));
 	printf("%d\n", ft_recursive_power(10,9));
 	printf("%d\n", ft_recursive_power(12,4));
 	printf("%d\n", ft_recursive_power(0,0));
 	printf("%d\n", ft_recursive_power(3,0));
+	printf("%d\n", ft_recursive_power(-3,3));
+	printf("%d\n", ft_recursive_power(3,-3));
 	printf("\n=====4=======\n");
 	printf("%d\n", ft_fibonacci(21));
 	printf("%d\n", ft_fibonacci(3));
@@ -61,9 +64,9 @@ int	main(void)
 	printf("%d\n", ft_find_next_prime(1));
 	printf("%d\n", ft_find_next_prime(0));
 	printf("%d\n", ft_find_next_prime(92));
-	printf("%d\n", ft_find_next_prime(98));
+	printf("%d\n", ft_find_next_prime(200000000));
 	printf("\n=====8=======\n");
-	printf("\n%d", ft_ten_queens_puzzle());
+//	printf("\n%d", ft_ten_queens_puzzle());
 	printf("\n");
 	return 0;
 }
