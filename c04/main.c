@@ -57,8 +57,11 @@ int	main(void)
 	printf("%d\n", ft_atoi_base("   +---qwerty", "qwertyuiop"));
 	printf("%d\n", ft_atoi_base("   +---2147483648", "0123456789"));
 	printf("%d\n", ft_atoi_base("   +----2147483647", "0123456789"));
+	printf("%d\n", ft_atoi_base("   +----2147483647", "012345 6789"));
 	printf("%d\n", ft_atoi_base("123", "0123356789"));
 	printf("%d\n", ft_atoi_base("12x", "0123356789"));
+	printf("%d\n", ft_atoi_base("   --  - -123", "  "));
+	printf("%d\n", ft_atoi_base("   --  - -123", "0123356789"));
 	printf("\n");
 	return 0;
 }

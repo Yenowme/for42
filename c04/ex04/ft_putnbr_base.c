@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 10:45:39 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 17:53:01 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 12:01:18 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (nbr == -2147483648)
 	{
 		print_base(nbr / size, base, size);
-		print_base((nbr % size) * -1 , base, size);
+		print_base((nbr % size) * -1, base, size);
 		return ;
 	}
 	print_base(nbr, base, size);

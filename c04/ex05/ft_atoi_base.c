@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 12:00:24 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/09 17:54:04 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/11 12:02:50 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		check_base_ok(char *base, int *base_size)
 	while (base[i])
 	{
 		j = i + 1;
-		if (base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-'
+			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13))
 			return (1);
 		while (base[j])
 		{
@@ -98,12 +99,11 @@ int		ft_atoi_base(char *str, char *base)
 		return (0);
 	while (str_is_base(str, i++, base) != -1)
 		s_size++;
-	i = i - 2;
+	if (check_base_ok(base, &b_size) || s_size == 0)
+		return (0);
+	i -= 1;
 	while (++j < s_size)
-	{
-		rt += str_is_base(str, i, base) * make_rt(b_size, j);
-		i--;
-	}
+		rt += str_is_base(str, --i, base) * make_rt(b_size, j);
 	i = 0;
 	if (check_str(str, &i) % 2 == 1)
 		rt *= -1;
