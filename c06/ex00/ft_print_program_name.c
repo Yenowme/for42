@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:09:41 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/11 18:51:57 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/14 18:06:31 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ int	main(int argc, char **argv)
 {
 	int i;
 
-	i = 0; 
-	while (arc > 0 || argv[0][i])
+	i = 0;
+	while (argc == 1 && argv[0][i])
 	{
 		write(1, &argv[0][i], 1);
 		i++;
 	}
+	write(1, "\n", 1);
 }
