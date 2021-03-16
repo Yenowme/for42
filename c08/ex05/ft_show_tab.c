@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:20:18 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/08 18:37:43 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/16 22:44:19 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	print_size(int size)
 {
 	char a;
 
+	if (size == 0)
+	{
+		write(1, "0", 1);
+		return ;
+	}
 	if (size < 10)
 	{
 		a = '0' + size;

@@ -6,50 +6,45 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 13:45:38 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/08 18:44:05 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/17 00:46:57 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-int			*set_m_size(int ac, char **av)
+int						ft_strlen(char *c)
 {
 	int i;
-	int j;
-	int *m_size;
 
-	m_size = (int *)malloc(sizeof(int) * ac);
-	i = -1;
-	while (++i < ac)
-	{
-		j = -1;
-		while (av[i][++j])
-			m_size[i]++;
-	}
-	return (m_size);
+	i = 0;
+	while (c[i])
+		i++;
+	return (i);
 }
 
-struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
+struct	s_stock_str		*ft_strs_to_tab(int ac, char **av)
 {
 	int			i;
 	int			j;
-	int			*m_size;
 	t_stock_str	*rt;
 
 	rt = (t_stock_str*)malloc(sizeof(t_stock_str) * ac + 1);
 	if (!rt)
 		return (0);
-	m_size = set_m_size(ac, av);
 	i = -1;
 	while (++i < ac)
 	{
-		j = -1;
+		rt[i].size = ft_strlen(av[i]);
 		rt[i].str = av[i];
-		rt[i].copy = malloc(sizeof(char) * m_size[i]);
-		rt[i].size = m_size[i];
-		while (++j < m_size[i])
+		rt[i].copy = malloc(sizeof(char) * ft_strlen(av[i]) + 1);
+		j = 0;
+		while (av[i][j])
+		{
 			rt[i].copy[j] = av[i][j];
+			j++;
+		}
+		rt[i].copy[j] = 0;
 	}
 	rt[i].str = 0;
 	return (rt);
