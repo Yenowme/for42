@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 10:45:39 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/04 14:36:44 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/16 21:02:19 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ char	*putnbr_base_rt(int nbr, char *base_to)
 		rt = (char *)malloc(sizeof(char) * (m_size + 1));
 		nbr_char(nbr / g_b_size, base_to, &rt, &i);
 		nbr_char((nbr % g_b_size) * -1, base_to, &rt, &i);
+		rt[i] = 0;
 		return (rt);
 	}
 	nbr_m_size(nbr, base_to, &m_size);
 	rt = (char *)malloc(sizeof(char) * m_size);
 	nbr_char(nbr, base_to, &rt, &i);
+	rt[i] = 0;
 	return (rt);
 }
 
@@ -85,6 +87,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	char	*rt;
 
 	nb = my_atoi_base(nbr, base_from);
+	if (nb == -1)
+		return (0);
 	rt = putnbr_base_rt(nb, base_to);
 	return (rt);
 }

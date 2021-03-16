@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 13:03:55 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/05 16:50:46 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/16 20:42:21 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int		vertical_size(char *str, char *charset)
 	i = 0;
 	j = 0;
 	rt_size = 0;
+	while (str_check(str, charset, i))
+		i++;
 	while (str[i])
 	{
 		while (!str_check(str, charset, i))
@@ -50,13 +52,20 @@ void	set_m_size(int **m_size, char *str, char *charset)
 {
 	int	i;
 	int	k;
+	int vertical;
 
-	k = 0;
+	vertical = vertical_size(str, charset);
+	k = -1;
 	i = 0;
-	*m_size = (int *)malloc(sizeof(int) * vertical_size(str, charset));
+	*m_size = (int *)malloc(sizeof(int) * vertical);
+	while (++k < vertical)
+		m_size[0][k] = 0;
+	k = 0;
+	while (str_check(str, charset, i))
+		i++;
 	while (str[i])
 	{
-		while (!str_check(str, charset, i))
+		while (!str_check(str, charset, i) && str[i])
 		{
 			i++;
 			m_size[0][k]++;
@@ -74,10 +83,12 @@ char	**rt_malloc(int *m_size, int vert_size)
 	int		i;
 
 	i = 0;
-	rt = (char **)malloc(sizeof(char *) * vert_size);
+	rt = (char **)malloc(sizeof(char *) * vert_size + 1);
+	if (!rt)
+		return (0);
 	while (i < vert_size)
 	{
-		rt[i] = (char *)malloc(sizeof(char) * m_size[i]);
+		rt[i] = (char *)malloc(sizeof(char) * m_size[i] + 1);
 		i++;
 	}
 	return (rt);
@@ -95,6 +106,8 @@ char	**ft_split(char *str, char *charset)
 	i = -1;
 	set_m_size(&m_size, str, charset);
 	rt = rt_malloc(m_size, vertical_size(str, charset));
+	while (str_check(str, charset, k))
+		k++;
 	while (++i < vertical_size(str, charset))
 	{
 		j = -1;
@@ -104,5 +117,6 @@ char	**ft_split(char *str, char *charset)
 		while (str_check(str, charset, k))
 			k++;
 	}
+	rt[i] = 0;
 	return (rt);
 }

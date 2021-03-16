@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 12:00:24 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/04 11:41:24 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/03/16 20:43:04 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		check_base_ok(char *base, int *base_size)
 	while (base[i])
 	{
 		j = i + 1;
-		if (base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-' ||
+				(base[i] >= 9 && base[i] <= 13) || base[i] == ' ')
 			return (1);
 		while (base[j])
 		{
@@ -95,7 +96,7 @@ int		my_atoi_base(char *str, char *base)
 	i = 0;
 	check_str(str, &i);
 	if (check_base_ok(base, &b_size))
-		return (0);
+		return (-1);
 	while (str_is_base(str, i++, base) != -1)
 		s_size++;
 	i = i - 2;
